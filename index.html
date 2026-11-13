@@ -1,0 +1,432 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Christian Zukowski Governance Consulting — practical support for effective boards, committees and governance frameworks.">
+<title>Christian Zukowski | Governance Consulting</title>
+<style>
+:root {
+  --navy: #17324d;
+  --teal: #248c91;
+  --light: #eaf4f3;
+  --ink: #243746;
+  --muted: #60727d;
+  --border: #dce7e9;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: var(--ink);
+  line-height: 1.65;
+  background: white;
+}
+a { color: inherit; }
+a:focus-visible, button:focus-visible {
+  outline: 3px solid #48bfc2;
+  outline-offset: 4px;
+}
+.wrap { max-width: 1120px; margin: auto; padding: 0 28px; }
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #fffefefa;
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(14px);
+}
+.nav {
+  min-height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+.mark {
+  width: 53px;
+  height: 53px;
+  display: grid;
+  place-items: center;
+  background: var(--navy);
+  border-left: 5px solid var(--teal);
+  color: white;
+  font-weight: 750;
+  letter-spacing: -2px;
+  font-size: 23px;
+}
+.brandname {
+  font-size: 13px;
+  line-height: 1.25;
+  font-weight: 800;
+  letter-spacing: .055em;
+  color: var(--navy);
+}
+.brandname span {
+  display: block;
+  color: var(--teal);
+  font-weight: 600;
+  font-size: 10px;
+  letter-spacing: .14em;
+  margin-top: 4px;
+}
+nav { display: flex; align-items: center; gap: 25px; }
+nav a {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--navy);
+}
+nav a:hover { color: var(--teal); }
+.nav-cta {
+  background: var(--teal);
+  color: white !important;
+  padding: 11px 18px;
+  border-radius: 5px;
+}
+.menu {
+  display: none;
+  border: 1px solid var(--border);
+  background: white;
+  border-radius: 5px;
+  padding: 8px 12px;
+  font-size: 20px;
+  color: var(--navy);
+}
+.hero {
+  background: var(--navy);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+.hero:after {
+  content: "";
+  position: absolute;
+  width: 480px;
+  height: 480px;
+  border: 1px solid #ffffff18;
+  border-radius: 50%;
+  right: -170px;
+  top: -140px;
+  box-shadow: 0 0 0 85px #ffffff06, 0 0 0 170px #ffffff05;
+  pointer-events: none;
+}
+.hero .wrap {
+  position: relative;
+  z-index: 1;
+  padding-top: 110px;
+  padding-bottom: 120px;
+}
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  font-size: 12px;
+  font-weight: 750;
+  color: var(--teal);
+  margin: 0 0 18px;
+}
+.hero .eyebrow { color: #81d4d2; }
+h1, h2, h3, p { margin-top: 0; }
+h1 {
+  font-size: clamp(42px, 6.5vw, 76px);
+  line-height: 1.1;
+  letter-spacing: -.045em;
+  max-width: 850px;
+  margin-bottom: 25px;
+}
+h1 em { font-style: normal; color: #8cd3d1; }
+.lead {
+  font-size: clamp(17px, 2vw, 21px);
+  color: #d6e5e9;
+  max-width: 620px;
+  margin-bottom: 34px;
+}
+.actions { display: flex; flex-wrap: wrap; gap: 13px; }
+.btn {
+  display: inline-block;
+  padding: 13px 22px;
+  border-radius: 5px;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  transition: transform .2s, background .2s;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-primary { background: var(--teal); color: white; }
+.btn-primary:hover { background: #1b757a; }
+.btn-outline { border: 1px solid #a7c2cb; color: white; }
+.btn-outline:hover { background: #ffffff14; }
+section { padding: 94px 0; scroll-margin-top: 90px; }
+.section-heading { max-width: 720px; margin-bottom: 38px; }
+h2 {
+  font-size: clamp(30px, 4vw, 45px);
+  letter-spacing: -.035em;
+  line-height: 1.2;
+  color: var(--navy);
+  margin-bottom: 18px;
+}
+.section-heading p, .intro { color: var(--muted); font-size: 17px; }
+.services, .approach { background: #f7fafb; }
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+.card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  padding: 32px;
+  transition: box-shadow .2s, transform .2s;
+}
+.card:hover {
+  box-shadow: 0 14px 34px #17324d10;
+  transform: translateY(-3px);
+}
+.card .number {
+  font-size: 12px;
+  letter-spacing: .16em;
+  color: var(--teal);
+  font-weight: 800;
+}
+.card h3 {
+  font-size: 21px;
+  line-height: 1.3;
+  color: var(--navy);
+  margin: 16px 0 12px;
+}
+.card p { color: var(--muted); margin: 0; }
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 90px;
+  align-items: center;
+}
+.quote-panel {
+  background: var(--light);
+  border-left: 5px solid var(--teal);
+  padding: 40px;
+  border-radius: 0 9px 9px 0;
+}
+.quote-panel p {
+  font-size: 24px;
+  line-height: 1.4;
+  color: var(--navy);
+  font-weight: 650;
+  letter-spacing: -.02em;
+  margin: 0;
+}
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.step { border-top: 3px solid var(--teal); padding-top: 23px; }
+.step b { color: var(--teal); font-size: 13px; }
+.step h3 { color: var(--navy); margin: 10px 0; }
+.step p { color: var(--muted); }
+.contact { background: var(--navy); color: white; }
+.contact h2 { color: white; }
+.contact .intro { color: #d6e5e9; max-width: 680px; }
+.contact .email {
+  display: inline-block;
+  color: #a5e5e3;
+  font-weight: 700;
+  font-size: clamp(17px, 3vw, 25px);
+  overflow-wrap: anywhere;
+  margin-top: 12px;
+}
+footer {
+  background: #10283e;
+  color: #c1d1d8;
+  padding: 27px 0;
+  font-size: 13px;
+}
+footer .wrap {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+footer a { color: #c1d1d8; }
+@media(max-width: 760px) {
+  .nav { min-height: 72px; }
+  .menu { display: block; }
+  nav {
+    display: none;
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: white;
+    padding: 20px 28px 25px;
+    flex-direction: column;
+    align-items: stretch;
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 15px 25px #17324d12;
+  }
+  nav.open { display: flex; }
+  .hero .wrap { padding-top: 85px; padding-bottom: 90px; }
+  .cards, .split, .steps { grid-template-columns: 1fr; }
+  .split { gap: 24px; }
+  section { padding: 68px 0; }
+  .quote-panel { padding: 28px; }
+  .card { padding: 25px; }
+}
+@media(prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *:before, *:after { transition: none !important; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#home" aria-label="Christian Zukowski Governance Consulting home">
+      <span class="mark" aria-hidden="true">CZ</span>
+      <span class="brandname">CHRISTIAN ZUKOWSKI
+        <span>GOVERNANCE CONSULTING</span>
+      </span>
+    </a>
+    <button class="menu" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navigation">☰</button>
+    <nav id="navigation" aria-label="Main navigation">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#approach">Approach</a>
+      <a class="nav-cta" href="#contact">Let's Connect</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div id="home" class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Independent governance consulting</p>
+      <h1>Better governance.<br><em>Stronger organizations.</em></h1>
+      <p class="lead">Practical, thoughtful governance support to help boards and committees work more effectively, make confident decisions, and achieve their goals.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#contact">Start a Conversation →</a>
+        <a class="btn btn-outline" href="#services">Explore Services</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="services" id="services">
+    <div class="wrap">
+      <div class="section-heading">
+        <p class="eyebrow">What I do</p>
+        <h2>Governance solutions built around your needs.</h2>
+        <p>From reviewing foundational documents to assessing committee effectiveness, I help organizations identify opportunities and turn recommendations into practical next steps.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <span class="number">01 / STRUCTURE</span>
+          <h3>Committee Effectiveness Reviews</h3>
+          <p>Assess committee mandates, structures, responsibilities, and practices to support clearer accountability and more effective decision-making.</p>
+        </article>
+        <article class="card">
+          <span class="number">02 / CLARITY</span>
+          <h3>Terms of Reference Reviews</h3>
+          <p>Review and refine committee terms of reference to improve clarity, consistency, alignment, and usability.</p>
+        </article>
+        <article class="card">
+          <span class="number">03 / FOUNDATIONS</span>
+          <h3>Bylaw Reviews</h3>
+          <p>Examine governance bylaws for clarity, coherence, and alignment with organizational needs and applicable requirements.</p>
+        </article>
+        <article class="card">
+          <span class="number">04 / COLLABORATION</span>
+          <h3>Governance Workshops</h3>
+          <p>Facilitate focused conversations with boards and committee leaders to surface challenges, build shared understanding, and identify improvements.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">About</p>
+        <h2>Governance should help organizations move forward.</h2>
+        <p class="intro">I'm Christian Zukowski, a governance professional who works with organizations to make governance structures, documents, and processes clearer and more effective.</p>
+        <p>My approach combines careful analysis with practical recommendations. I believe good governance is not just about compliance or documentation—it's about creating the conditions for thoughtful oversight, meaningful participation, and sound decisions.</p>
+        <p><small><em>Note: This biography is draft copy and can be tailored to reflect your experience and credentials.</em></small></p>
+      </div>
+      <div class="quote-panel">
+        <p>Clear structures.<br>Useful processes.<br>Better decisions.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="approach" id="approach">
+    <div class="wrap">
+      <div class="section-heading">
+        <p class="eyebrow">How I work</p>
+        <h2>Collaborative from start to finish.</h2>
+        <p>Every organization is different. My process is designed to understand your context and deliver recommendations you can use.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <b>STEP 01</b>
+          <h3>Listen & understand</h3>
+          <p>Discuss your goals, governance context, challenges, and the scope of the work.</p>
+        </div>
+        <div class="step">
+          <b>STEP 02</b>
+          <h3>Review & engage</h3>
+          <p>Examine relevant documents and gather perspectives from the people involved.</p>
+        </div>
+        <div class="step">
+          <b>STEP 03</b>
+          <h3>Recommend & support</h3>
+          <p>Provide clear findings, actionable recommendations, and support for next steps where helpful.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <p class="eyebrow" style="color:#81d4d2">Get in touch</p>
+      <h2>Let's talk governance.</h2>
+      <p class="intro">Have a governance question, challenge, or project in mind? I'd welcome the opportunity to connect over coffee or a virtual conversation and explore how I might help.</p>
+      <a class="email" href="mailto:cz.govconsulting@gmail.com?subject=Governance%20Consulting%20Inquiry">cz.govconsulting@gmail.com ↗</a>
+      <div style="margin-top:30px">
+        <a class="btn btn-primary" href="mailto:cz.govconsulting@gmail.com?subject=Let's%20Talk%20Governance">Send an Email →</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="year">2026</span> Christian Zukowski · Governance Consulting</span>
+    <a href="#home">Back to top ↑</a>
+  </div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+const menu = document.querySelector('.menu');
+const nav = document.querySelector('nav');
+menu.addEventListener('click', () => {
+  const open = nav.classList.toggle('open');
+  menu.setAttribute('aria-expanded', String(open));
+  menu.textContent = open ? '✕' : '☰';
+});
+nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  nav.classList.remove('open');
+  menu.setAttribute('aria-expanded', 'false');
+  menu.textContent = '☰';
+}));
+</script>
+</body>
+</html>
